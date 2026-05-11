@@ -1,0 +1,28 @@
+[project]
+name = "coding-harness"
+version = "0.1.0"
+description = "Minimal standalone coding agent backed by vllm and local models"
+requires-python = ">=3.12"
+dependencies = [
+    "pytest>=9.0.2",
+]
+[project.optional-dependencies]
+inference = [
+  "vllm",
+]
+dev = [
+  "pytest>=8.0.0",
+  "ruff>=0.4.0",
+  "pre-commit>=3.7.0",
+  "ipykernel>=6.29.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/harness"]
