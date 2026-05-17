@@ -32,8 +32,16 @@ text = client.complete("Write a Python function that adds two numbers.")
 print(text)
 ```
 
-Smoke-test the running server:
+## Tests
+
+Run the default test suite:
 
 ```bash
-uv run python -m harness.vllm_check
+uv run pytest -q
+```
+
+Run vLLM integration tests against a local server:
+
+```bash
+RUN_VLLM_TESTS=1 uv run pytest -q tests/test_vllm_integration.py
 ```
